@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El océano de datos: cómo las redes sociales impulsan la era del Big Data</title>
+  <meta name="description" content="Blog académico sobre el impacto de las redes sociales en el desarrollo del Big Data: generación de datos, casos reales (TikTok, Meta, X), riesgos de privacidad y tendencias 2023-2026.">
+  <meta name="author" content="[NOMBRE DEL ESTUDIANTE]">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="El océano de datos: cómo las redes sociales impulsan la era del Big Data">
+  <meta property="og:description" content="Un análisis académico sobre cómo las interacciones en redes sociales alimentan el ecosistema de Big Data, con casos reales y una mirada crítica a la privacidad.">
+  <meta property="og:locale" content="es_ES">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== Sprite de iconos SVG (propios, sin dependencias externas) ===== -->
+  <svg class="icon-sprite" aria-hidden="true" style="display:none">
+    <symbol id="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v6c0 1.77 3.58 3.2 8 3.2s8-1.43 8-3.2V6"/><path d="M4 12v6c0 1.77 3.58 3.2 8 3.2s8-1.43 8-3.2v-6"/></symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24"><polygon points="12 2 4 14 11 14 9 22 20 9 13 9 12 2"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><polygon points="12 3 21 8 12 13 3 8 12 3"/><polyline points="3 13 12 18 21 13"/><polyline points="3 17.5 12 22.5 21 17.5"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></symbol>
+    <symbol id="icon-gem" viewBox="0 0 24 24"><polygon points="4 8 12 3 20 8 12 21 4 8"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="9" y1="3" x2="12" y2="8"/><line x1="15" y1="3" x2="12" y2="8"/></symbol>
+    <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.6"/><polyline points="4 17 9 12 12 15 16 10 20 15"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.9-9.7-9.6C1 7.2 3 4 6.4 4c2 0 3.4 1.1 4 2.1.6-1 2-2.1 4-2.1 3.4 0 5.4 3.2 4.1 6.4C19.5 15.1 12 20 12 20z"/></symbol>
+    <symbol id="icon-hash" viewBox="0 0 24 24"><line x1="5" y1="9" x2="19" y2="9"/><line x1="4" y1="15" x2="18" y2="15"/><line x1="10" y1="4" x2="7" y2="20"/><line x1="16" y1="4" x2="13" y2="20"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+    <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8.2 6.8C13 8 12 15 17 17"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="20" y1="20" x2="15.3" y2="15.3"/></symbol>
+    <symbol id="icon-repeat" viewBox="0 0 24 24"><path d="M4 12V8a3 3 0 0 1 3-3h12"/><polyline points="15 2 19 5 15 8"/><path d="M20 12v4a3 3 0 0 1-3 3H5"/><polyline points="9 22 5 19 9 16"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c.8-3.4 3-5.2 6-5.2s5.2 1.8 6 5.2"/><path d="M15.5 15c2.3.3 3.7 1.9 4.3 4.3"/></symbol>
+    <symbol id="icon-smartphone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="1.6"/><line x1="10" y1="19" x2="14" y2="19"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.6 2.5 4 5.7 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.7-4-9s1.4-6.5 4-9z"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5C5 5.8 8.1 3 12 3s7 2.8 7 6.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14.5"/></symbol>
+    <symbol id="icon-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="6" rx="1.2"/><rect x="3.5" y="14" width="17" height="6" rx="1.2"/><line x1="7" y1="7" x2="7" y2="7"/><line x1="7" y1="17" x2="7" y2="17"/></symbol>
+    <symbol id="icon-cpu" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></symbol>
+    <symbol id="icon-bars" viewBox="0 0 24 24"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="15"/></symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><polygon points="10 8.5 16 12 10 15.5 10 8.5"/></symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.3h7L17 8h3v11H4V8z"/><circle cx="12" cy="13" r="3.3"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9.5" rx="1.4"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="icon-scale" viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7L2.5 13.5a2.7 2.7 0 0 0 5 0L5 7z"/><path d="M19 7l-2.5 6.5a2.7 2.7 0 0 0 5 0L19 7z"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="15"/><line x1="12" y1="17.5" x2="12" y2="17.5"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5A1.5 1.5 0 0 0 20 18.5v-13z"/></symbol>
+    <symbol id="icon-trend" viewBox="0 0 24 24"><polyline points="3 17 9.5 10.5 14 15 21 7"/><polyline points="15 7 21 7 21 13"/></symbol>
+  </svg>
+
+  <!-- ===== Barra de progreso de lectura ===== -->
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ===== Navegación ===== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#top" class="nav__brand">
+        <span class="nav__mark" aria-hidden="true"></span>
+        <span>Big&nbsp;Data <em>&amp;</em> Redes&nbsp;Sociales</span>
+        <img class="nav__logo" src="assets/logosInstitucionales/ESCUDO COLOR.png" alt="" width="24" height="24">
+      </a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+        <svg class="icon nav__toggle-icon nav__toggle-icon--open" width="22" height="22"><use href="#icon-menu"/></svg>
+        <svg class="icon nav__toggle-icon nav__toggle-icon--close" width="22" height="22"><use href="#icon-close"/></svg>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <a href="#introduccion" data-nav>Introducción</a>
+        <a href="#que-es-big-data" data-nav>Big Data</a>
+        <a href="#redes-sociales-datos" data-nav>Generación de datos</a>
+        <a href="#del-dato-a-la-decision" data-nav>Del dato a la decisión</a>
+        <a href="#casos-reales" data-nav>Casos reales</a>
+        <a href="#beneficios" data-nav>Beneficios</a>
+        <a href="#lado-invisible" data-nav>Lado invisible</a>
+        <a href="#tendencias" data-nav>Tendencias</a>
+        <a href="#nuestra-postura" data-nav>Nuestra postura</a>
+        <a href="#conclusiones" data-nav>Conclusiones</a>
+        <a href="#referencias" data-nav>Referencias</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Big Data <span aria-hidden="true">·</span> Redes sociales</p>
+        <h1 class="hero__title" id="hero-title">El océano de datos: cómo las redes sociales impulsan la era del Big Data</h1>
+        <p class="hero__subtitle">Cada publicación, cada reacción y cada segundo de reproducción se convierte en un dato que alguien, en algún lugar, almacena y analiza.</p>
+
+        <div class="hero__credentials">
+          <img class="hero__seal" src="assets/logosInstitucionales/ESCUDO COLOR.png" alt="Escudo de la Universidad de Cundinamarca" width="40" height="40">
+          <div class="hero__meta">
+            <span>Blog académico · 2026</span>
+            <span aria-hidden="true">—</span>
+            <span>Autor: Nikolas Esteban Krejci Bautista</span>
+            <span aria-hidden="true">—</span>
+            <span>Programa: ESPECIALIZACIÓN EN ANALÍTICA Y CIENCIA DE DATOS</span>
+            <span aria-hidden="true">—</span>
+            <span>CADI: BIG DATA - CAD2092023101</span>
+            <span aria-hidden="true">—</span>
+            <span>Institución: Universidad de Cundinamarca</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-shell">
+      <!-- ===== Índice de contenidos ===== -->
+      <aside class="toc" aria-label="Índice de contenidos">
+        <p class="toc__label">Índice</p>
+        <ol class="toc__list">
+          <li><a href="#introduccion" data-nav>Introducción</a></li>
+          <li><a href="#que-es-big-data" data-nav>¿Qué es realmente Big Data?</a></li>
+          <li><a href="#redes-sociales-datos" data-nav>Redes sociales generadoras de datos</a></li>
+          <li><a href="#del-dato-a-la-decision" data-nav>Del dato a la decisión</a></li>
+          <li><a href="#casos-reales" data-nav>Tres casos reales</a></li>
+          <li><a href="#beneficios" data-nav>Beneficios y oportunidades</a></li>
+          <li><a href="#lado-invisible" data-nav>El lado invisible de los datos</a></li>
+          <li><a href="#tendencias" data-nav>Tendencias actuales</a></li>
+          <li><a href="#nuestra-postura" data-nav>Nuestra postura</a></li>
+          <li><a href="#conclusiones" data-nav>Conclusiones</a></li>
+          <li><a href="#referencias" data-nav>Referencias</a></li>
+        </ol>
+      </aside>
+
+      <div class="article">
+
+        <!-- ===== 1. INTRODUCCIÓN ===== -->
+        <section class="block" id="introduccion" aria-labelledby="introduccion-title">
+          <p class="block__eyebrow">01 · Introducción</p>
+          <h2 class="block__title" id="introduccion-title">Introducción</h2>
+
+          <p>En poco más de dos décadas, las redes sociales pasaron de ser espacios de ocio a convertirse en una infraestructura central de la vida digital. Cada plataforma procesa constantemente publicaciones, mensajes, reacciones y patrones de navegación de millones de personas (Hemmati, Mohammadi Arzanagh, &amp; Rahmani, 2023).</p>
+
+          <p>Ese volumen creciente de interacciones no desaparece: se almacena, se organiza y, en muchos casos, se analiza para extraer patrones de comportamiento. Esta acumulación masiva y heterogénea de información es, precisamente, el terreno donde opera el Big Data.</p>
+
+          <p>El vínculo entre ambos fenómenos no es accidental. Las redes sociales ofrecen justamente lo que las tecnologías de Big Data necesitan para ser relevantes: datos continuos, diversos y a gran escala (Chen et al., 2024).</p>
+
+          <p>Sin embargo, tener datos no es lo mismo que generar valor a partir de ellos. La pregunta que orienta este artículo no es si las redes sociales producen grandes volúmenes de información —eso es evidente—, sino cómo esa información se transforma en conocimiento útil y qué consecuencias trae ese proceso.</p>
+
+          <blockquote class="thesis reveal">
+            <p>Las redes sociales no son solo plataformas de comunicación: al convertir cada interacción digital en un dato explotable, actúan como uno de los principales motores de crecimiento del ecosistema Big Data. Sin embargo, ese volumen de datos solo se transforma en valor real cuando existe la capacidad tecnológica —y la responsabilidad ética— de almacenarlo, procesarlo y utilizarlo de forma transparente.</p>
+          </blockquote>
+        </section>
+
+        <!-- ===== 2. QUÉ ES BIG DATA ===== -->
+        <section class="block" id="que-es-big-data" aria-labelledby="que-es-big-data-title">
+          <p class="block__eyebrow">02 · Fundamentos</p>
+          <h2 class="block__title" id="que-es-big-data-title">¿Qué es realmente Big Data?</h2>
+
+          <p>El término "Big Data" suele asociarse únicamente con "muchos datos". Esa idea es incompleta. El NIST —el Instituto Nacional de Estándares y Tecnología de Estados Unidos— caracteriza el Big Data a partir de conjuntos de datos cuyo volumen, velocidad o variedad superan la capacidad de las herramientas tradicionales de almacenamiento y análisis (Chang &amp; Grady, 2018).</p>
+
+          <p>Para describir estas características, la literatura especializada suele recurrir a las llamadas <strong>5V del Big Data</strong>. Cada una explica una dimensión distinta del fenómeno, y todas se manifiestan de forma particularmente intensa en las redes sociales. Selecciona cada tarjeta para ver su relación directa con ellas.</p>
+
+          <ul class="five-v">
+
+            <li><button class="five-v__card reveal" type="button" aria-expanded="false">
+              <svg class="icon five-v__icon" width="26" height="26"><use href="#icon-database"/></svg>
+              <span class="five-v__letter">V</span>
+              <h3>Volumen</h3>
+              <p class="five-v__def">La cantidad de datos generados por publicaciones, mensajes, reacciones y contenido multimedia, que crece de forma continua y sin pausas.</p>
+              <p class="five-v__link">En redes sociales, el volumen no proviene de una sola fuente: es la suma de millones de personas interactuando de manera simultánea (Hemmati et al., 2023).</p>
+              <svg class="icon five-v__chevron" width="18" height="18"><use href="#icon-chevron"/></svg>
+            </button></li>
+
+            <li><button class="five-v__card reveal" type="button" aria-expanded="false">
+              <svg class="icon five-v__icon" width="26" height="26"><use href="#icon-zap"/></svg>
+              <span class="five-v__letter">V</span>
+              <h3>Velocidad</h3>
+              <p class="five-v__def">La rapidez con la que los datos se crean, se transmiten y necesitan procesarse para conservar su relevancia.</p>
+              <p class="five-v__link">Una tendencia en X o un video viral en TikTok generan picos de datos que deben procesarse casi en tiempo real para seguir siendo útiles.</p>
+              <svg class="icon five-v__chevron" width="18" height="18"><use href="#icon-chevron"/></svg>
+            </button></li>
+
+            <li><button class="five-v__card reveal" type="button" aria-expanded="false">
+              <svg class="icon five-v__icon" width="26" height="26"><use href="#icon-layers"/></svg>
+              <span class="five-v__letter">V</span>
+              <h3>Variedad</h3>
+              <p class="five-v__def">La diversidad de formatos en los que aparece la información: texto, imagen, video, audio, metadatos y geolocalización.</p>
+              <p class="five-v__link">Una sola publicación puede combinar texto, imagen, hashtags, ubicación y reacciones: varios tipos de datos generados en un solo acto.</p>
+              <svg class="icon five-v__chevron" width="18" height="18"><use href="#icon-chevron"/></svg>
+            </button></li>
+
+            <li><button class="five-v__card reveal" type="button" aria-expanded="false">
+              <svg class="icon five-v__icon" width="26" height="26"><use href="#icon-shield"/></svg>
+              <span class="five-v__letter">V</span>
+              <h3>Veracidad</h3>
+              <p class="five-v__def">La fiabilidad y calidad de los datos disponibles, que no siempre es alta ni homogénea.</p>
+              <p class="five-v__link">Cuentas falsas, información errónea o contenido automatizado afectan directamente la calidad de los datos que las redes sociales aportan al ecosistema de Big Data.</p>
+              <svg class="icon five-v__chevron" width="18" height="18"><use href="#icon-chevron"/></svg>
+            </button></li>
+
+            <li><button class="five-v__card reveal" type="button" aria-expanded="false">
+              <svg class="icon five-v__icon" width="26" height="26"><use href="#icon-gem"/></svg>
+              <span class="five-v__letter">V</span>
+              <h3>Valor</h3>
+              <p class="five-v__def">La utilidad real que puede extraerse de los datos una vez que han sido procesados y analizados.</p>
+              <p class="five-v__link">El valor no aparece por tener datos, sino cuando estos permiten identificar patrones de consumo, anticipar comportamientos o personalizar contenido (Badshah et al., 2024).</p>
+              <svg class="icon five-v__chevron" width="18" height="18"><use href="#icon-chevron"/></svg>
+            </button></li>
+
+          </ul>
+
+          <p>Ninguna de estas dimensiones opera de forma aislada. Es la combinación de las cinco —y no una en particular— lo que explica por qué las redes sociales se consideran una de las fuentes más representativas de Big Data en la actualidad.</p>
+        </section>
+
+        <!-- ===== 3. REDES SOCIALES GENERADORAS DE DATOS ===== -->
+        <section class="block" id="redes-sociales-datos" aria-labelledby="redes-sociales-datos-title">
+          <p class="block__eyebrow">03 · Origen de los datos</p>
+          <h2 class="block__title" id="redes-sociales-datos-title">Las redes sociales como generadoras de datos</h2>
+
+          <p>No todos los datos que produce una red social son iguales. Es posible distinguir al menos tres categorías, cada una con un nivel distinto de visibilidad para la persona que las genera (Hemmati et al., 2023).</p>
+
+          <div class="data-types">
+            <article class="data-types__card reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-message"/></svg> Datos explícitos</h3>
+              <p>Información que el usuario decide compartir de forma consciente y directa.</p>
+              <ul class="tag-list">
+                <li><svg class="icon" width="16" height="16"><use href="#icon-message"/></svg> Publicaciones y comentarios</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-message"/></svg> Mensajes</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-image"/></svg> Fotografías y vídeos</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-heart"/></svg> Reacciones</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-hash"/></svg> Hashtags</li>
+              </ul>
+            </article>
+
+            <article class="data-types__card reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-eye"/></svg> Datos de comportamiento</h3>
+              <p>Información que se genera como consecuencia del uso de la plataforma, sin que el usuario la redacte de forma explícita.</p>
+              <ul class="tag-list">
+                <li><svg class="icon" width="16" height="16"><use href="#icon-eye"/></svg> Tiempo de visualización</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-route"/></svg> Contenido consultado</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-repeat"/></svg> Frecuencia de interacción</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-user"/></svg> Cuentas visitadas</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-search"/></svg> Búsquedas realizadas</li>
+              </ul>
+            </article>
+
+            <article class="data-types__card reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-globe"/></svg> Datos contextuales</h3>
+              <p>Información sobre las circunstancias en las que ocurre la interacción, más que sobre su contenido.</p>
+              <ul class="tag-list">
+                <li><svg class="icon" width="16" height="16"><use href="#icon-smartphone"/></svg> Dispositivo utilizado</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-globe"/></svg> Idioma</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-pin"/></svg> Ubicación aproximada</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-clock"/></svg> Horario de actividad</li>
+                <li><svg class="icon" width="16" height="16"><use href="#icon-users"/></svg> Conexiones entre usuarios</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Visualización 3: convergencia de tipos de datos -->
+          <figure class="diagram reveal">
+            <svg viewBox="0 0 900 380" class="diagram__svg" role="img" aria-labelledby="fig1-title fig1-desc">
+              <title id="fig1-title">Convergencia de los tres tipos de datos en el ecosistema de Big Data</title>
+              <desc id="fig1-desc">Datos explícitos, de comportamiento y contextuales convergen en un nodo central de Big Data.</desc>
+
+              <path d="M150,70 C260,70 320,220 430,240" class="diagram__link"/>
+              <path d="M450,70 C450,140 450,180 450,240" class="diagram__link"/>
+              <path d="M750,70 C640,70 580,220 470,240" class="diagram__link"/>
+
+              <g transform="translate(60,20)">
+                <rect x="0" y="0" width="180" height="60" rx="10" class="diagram__node diagram__node--a"/>
+                <text x="90" y="35" class="diagram__label">Datos explícitos</text>
+              </g>
+              <g transform="translate(360,20)">
+                <rect x="0" y="0" width="180" height="60" rx="10" class="diagram__node diagram__node--b"/>
+                <text x="90" y="35" class="diagram__label">Datos de comportamiento</text>
+              </g>
+              <g transform="translate(660,20)">
+                <rect x="0" y="0" width="180" height="60" rx="10" class="diagram__node diagram__node--c"/>
+                <text x="90" y="35" class="diagram__label">Datos contextuales</text>
+              </g>
+
+              <g transform="translate(340,240)">
+                <rect x="0" y="0" width="220" height="76" rx="12" class="diagram__node diagram__node--core"/>
+                <text x="110" y="34" class="diagram__label diagram__label--core">ECOSISTEMA DE</text>
+                <text x="110" y="58" class="diagram__label diagram__label--core diagram__label--core-strong">BIG DATA</text>
+              </g>
+            </svg>
+            <figcaption>Figura 1. Los tres tipos de datos generados en redes sociales convergen en un mismo ecosistema de Big Data.</figcaption>
+          </figure>
+
+          <p>Estas tres categorías no son estáticas: se generan de forma simultánea y continua cada vez que alguien interactúa con la plataforma. El siguiente paso es entender qué ocurre con esa información una vez que se genera.</p>
+
+          <!-- Visualización 1: ciclo del dato -->
+          <figure class="diagram diagram--flow reveal">
+            <p id="fig2-title" class="sr-only">Ciclo de vida del dato: usuario, interacción, generación de datos, almacenamiento, procesamiento, análisis y predicción, recomendación o decisión, en ese orden.</p>
+            <div class="flow" role="img" aria-labelledby="fig2-title">
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-user"/></svg><span>Usuario</span></div>
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-zap"/></svg><span>Interacción</span></div>
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-database"/></svg><span>Generación de datos</span></div>
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-server"/></svg><span>Almacenamiento</span></div>
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-cpu"/></svg><span>Procesamiento</span></div>
+              <div class="flow__step"><svg class="icon" width="22" height="22"><use href="#icon-bars"/></svg><span>Análisis</span></div>
+              <div class="flow__step flow__step--final"><svg class="icon" width="22" height="22"><use href="#icon-target"/></svg><span>Predicción / Recomendación / Decisión</span></div>
+            </div>
+            <figcaption>Figura 2. Trayecto que recorre un dato desde su origen en la interacción del usuario hasta convertirse en una decisión.</figcaption>
+          </figure>
+        </section>
+
+        <!-- ===== 4. DEL DATO A LA DECISIÓN ===== -->
+        <section class="block" id="del-dato-a-la-decision" aria-labelledby="del-dato-a-la-decision-title">
+          <p class="block__eyebrow">04 · De la información al conocimiento</p>
+          <h2 class="block__title" id="del-dato-a-la-decision-title">Del dato a la decisión</h2>
+
+          <p>Tener datos almacenados no equivale a tener conocimiento. El valor aparece únicamente cuando esos datos se procesan y se analizan con un propósito concreto (Badshah, Daud, Alharbey, Banjar, Bukhari, &amp; Alshemaimri, 2024).</p>
+
+          <p>El ciclo descrito en la figura anterior —generación, almacenamiento, procesamiento, análisis y decisión— se repite constantemente en el ecosistema digital de las redes sociales, y sostiene al menos cuatro aplicaciones muy conocidas:</p>
+
+          <div class="benefit-list">
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-target"/></svg>
+              <div>
+                <h3>Sistemas de recomendación</h3>
+                <p>Contenido personalizado que se ajusta al comportamiento observado del usuario, no solo a lo que declara preferir.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-camera"/></svg>
+              <div>
+                <h3>Publicidad personalizada</h3>
+                <p>Segmentación de audiencias a partir de patrones de interacción y datos demográficos declarados.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-trend"/></svg>
+              <div>
+                <h3>Análisis de tendencias</h3>
+                <p>Detección de temas, hashtags o eventos que ganan relevancia de forma acelerada en un periodo corto.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-bars"/></svg>
+              <div>
+                <h3>Inteligencia de negocio y segmentación</h3>
+                <p>Apoyo a decisiones organizacionales a partir de patrones agregados de comportamiento digital.</p>
+              </div>
+            </div>
+          </div>
+
+          <p>En ningún caso el punto de partida es "tener muchos datos". El punto de partida es contar con la infraestructura tecnológica y los métodos analíticos necesarios para que esos datos se conviertan en información procesable y, después, en decisiones.</p>
+        </section>
+
+        <!-- ===== 5. TRES CASOS REALES ===== -->
+        <section class="block" id="casos-reales" aria-labelledby="casos-reales-title">
+          <p class="block__eyebrow">05 · Evidencia aplicada</p>
+          <h2 class="block__title" id="casos-reales-title">Tres casos reales</h2>
+
+          <p>Los siguientes tres casos permiten observar, con ejemplos concretos, cómo las redes sociales alimentan procesos reales de Big Data. Se describen únicamente los mecanismos que las propias plataformas o la literatura académica han documentado públicamente.</p>
+
+          <article class="case reveal">
+            <div class="case__head">
+              <svg class="icon case__icon" width="26" height="26"><use href="#icon-play"/></svg>
+              <div>
+                <p class="case__tag">Caso 1</p>
+                <h3>TikTok: sistemas de recomendación</h3>
+              </div>
+            </div>
+            <p>El feed "Para ti" de TikTok es, según la propia plataforma, un sistema de recomendación que prioriza el contenido a partir de señales de interacción: videos que el usuario comparte o marca como "me gusta", cuentas que sigue, comentarios que publica y contenido que crea (TikTok, 2020).</p>
+            <p>Entre esas señales, TikTok ha declarado públicamente que el tiempo de visualización —en particular, terminar de ver un video de mayor duración— recibe un peso superior al de indicadores más débiles. La información sobre el dispositivo, el idioma o la ubicación también se utiliza, pero con un peso relativo menor (TikTok, 2020).</p>
+            <p>Este mecanismo ilustra de forma directa el ciclo descrito en la sección anterior: cada interacción se convierte en una señal que el sistema procesa para ajustar futuras recomendaciones, en un proceso continuo de retroalimentación (Badshah et al., 2024).</p>
+          </article>
+
+          <article class="case reveal">
+            <div class="case__head">
+              <svg class="icon case__icon" width="26" height="26"><use href="#icon-camera"/></svg>
+              <div>
+                <p class="case__tag">Caso 2</p>
+                <h3>Meta / Instagram: publicidad y segmentación</h3>
+              </div>
+            </div>
+            <p>Meta, empresa propietaria de Instagram, declara públicamente que no utiliza datos personales sensibles para segmentar anuncios, y que los temas de interés seleccionados para publicidad no reflejan creencias ni características personales de los usuarios (Meta, s. f.).</p>
+            <p>Aun así, la segmentación publicitaria se apoya en patrones de interacción, datos demográficos declarados y comportamiento dentro de la plataforma: una aplicación directa de análisis de Big Data sobre datos de comportamiento y datos contextuales.</p>
+            <p>La literatura sobre perfilamiento algorítmico advierte que, incluso cuando una plataforma restringe el uso de categorías sensibles, los sistemas de recomendación e inferencia pueden aproximar características personales a partir de patrones indirectos de comportamiento (Kang, Yang, Banu, &amp; Oh, 2025). Este contraste entre la política declarada y los riesgos identificados por la investigación académica se retoma en la sección crítica de este artículo.</p>
+          </article>
+
+          <article class="case reveal">
+            <div class="case__head">
+              <svg class="icon case__icon" width="26" height="26"><use href="#icon-hash"/></svg>
+              <div>
+                <p class="case__tag">Caso 3</p>
+                <h3>X (Twitter): análisis de sentimiento y tendencias</h3>
+              </div>
+            </div>
+            <p>Investigaciones recientes han utilizado datos públicos de X para entrenar modelos de análisis de sentimiento capaces de clasificar la opinión expresada en publicaciones sobre un tema determinado, con una exactitud reportada del 82.32% en su modelo experimental (Jonnala et al., 2025).</p>
+            <p>Este tipo de análisis permite identificar tendencias emergentes, seguir la evolución de acontecimientos casi en tiempo real y detectar temas con alta actividad: una aplicación directa de las dimensiones de velocidad y volumen descritas en las 5V.</p>
+            <p>Es importante señalar una limitación real: en los últimos años, el acceso académico a los datos de X se ha restringido de forma progresiva, lo que ha dificultado la investigación independiente sobre la plataforma (Chen et al., 2024). Esto no invalida los hallazgos existentes, pero exige prudencia frente a estudios que dependan de accesos a la API que ya no están disponibles en las mismas condiciones.</p>
+          </article>
+        </section>
+
+        <!-- ===== 6. BENEFICIOS Y OPORTUNIDADES ===== -->
+        <section class="block" id="beneficios" aria-labelledby="beneficios-title">
+          <p class="block__eyebrow">06 · Oportunidades</p>
+          <h2 class="block__title" id="beneficios-title">Beneficios y oportunidades</h2>
+
+          <p>El procesamiento de datos derivados de redes sociales no se limita a la publicidad. Cuando se realiza con rigor metodológico, también habilita aplicaciones con valor social, científico y organizacional.</p>
+
+          <div class="benefit-list">
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-target"/></svg>
+              <div>
+                <h3>Personalización de la experiencia</h3>
+                <p>Contenido y recomendaciones ajustados a comportamientos reales, no solo a preferencias declaradas por el usuario.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-trend"/></svg>
+              <div>
+                <h3>Detección temprana de tendencias</h3>
+                <p>Identificación casi inmediata de temas emergentes, útil para medios de comunicación, organizaciones y respuesta ante crisis.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-bars"/></svg>
+              <div>
+                <h3>Inteligencia de negocio</h3>
+                <p>Decisiones de producto y mercadeo fundamentadas en patrones agregados de comportamiento digital, en lugar de intuición.</p>
+              </div>
+            </div>
+            <div class="benefit-list__item reveal">
+              <svg class="icon" width="22" height="22"><use href="#icon-users"/></svg>
+              <div>
+                <h3>Investigación social</h3>
+                <p>Uso de datos de redes sociales con fines de investigación en ciencias sociales y monitoreo de percepción pública (Chen et al., 2024; Chew &amp; Gunasekeran, 2021).</p>
+              </div>
+            </div>
+          </div>
+
+          <p>Estos beneficios no son automáticos: dependen de que el procesamiento de los datos se realice de forma rigurosa y de que sus resultados se interpreten dentro de los límites reales de la información disponible.</p>
+        </section>
+
+        <!-- ===== 7. EL LADO INVISIBLE DE LOS DATOS ===== -->
+        <section class="block block--critical" id="lado-invisible" aria-labelledby="lado-invisible-title">
+          <p class="block__eyebrow">07 · Mirada crítica</p>
+          <h2 class="block__title" id="lado-invisible-title">El lado invisible de los datos</h2>
+
+          <p>Big Data en redes sociales no es un fenómeno neutral. El mismo mecanismo que permite personalizar contenido también puede utilizarse para vigilar, perfilar o influir en el comportamiento de las personas sin que estas lo perciban con claridad.</p>
+
+          <div class="tension-list">
+            <article class="tension reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-lock"/></svg> Privacidad frente a personalización</h3>
+              <div class="tension__grid">
+                <p><strong>A favor:</strong> los datos de comportamiento permiten experiencias más relevantes y contenido más pertinente para cada usuario.</p>
+                <p><strong>En contra:</strong> gran parte de esos datos se recopila sin que el usuario comprenda completamente su alcance real (Kang et al., 2025).</p>
+              </div>
+            </article>
+
+            <article class="tension reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-search"/></svg> Perfilamiento algorítmico</h3>
+              <p>Incluso cuando una plataforma declara no usar categorías sensibles para segmentar, los sistemas de inferencia pueden aproximar rasgos personales —intereses, hábitos, posibles vulnerabilidades— a partir de patrones indirectos de comportamiento (Kang et al., 2025).</p>
+            </article>
+
+            <article class="tension reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-eye"/></svg> Vigilancia digital y explotación comercial</h3>
+              <p>La literatura académica ha documentado tanto usos positivos como problemáticos de los datos masivos de redes sociales, señalando que su explotación comercial no siempre es visible ni comprensible para quien los genera (Chew &amp; Gunasekeran, 2021).</p>
+            </article>
+
+            <article class="tension reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-alert"/></svg> Sesgos algorítmicos y transparencia</h3>
+              <p>Los modelos entrenados con datos de comportamiento pueden reproducir y amplificar sesgos ya presentes en las interacciones humanas. La naturaleza propietaria de muchos de estos sistemas limita, además, la posibilidad de auditarlos desde fuera.</p>
+            </article>
+
+            <article class="tension reveal">
+              <h3><svg class="icon" width="20" height="20"><use href="#icon-scale"/></svg> Consentimiento y regulación</h3>
+              <p>Aceptar unos términos de servicio no equivale, necesariamente, a comprender de forma informada el alcance del tratamiento de los propios datos. Este vacío ha motivado respuestas regulatorias recientes, como el Reglamento de IA de la Unión Europea, que impone obligaciones de transparencia y gestión de riesgo a los sistemas de inteligencia artificial de alto impacto (Parlamento Europeo y Consejo de la Unión Europea, 2024).</p>
+            </article>
+          </div>
+
+          <p>Estos elementos no significan que el Big Data derivado de redes sociales sea, por definición, perjudicial. Significan que su valor no puede evaluarse exclusivamente en términos de eficiencia o personalización, sino también en términos de derechos, transparencia y consentimiento informado.</p>
+        </section>
+
+        <!-- ===== 8. TENDENCIAS ACTUALES ===== -->
+        <section class="block" id="tendencias" aria-labelledby="tendencias-title">
+          <p class="block__eyebrow">08 · Panorama 2023-2026</p>
+          <h2 class="block__title" id="tendencias-title">Tendencias actuales</h2>
+
+          <p>El panorama reciente del Big Data asociado a redes sociales está marcado por la convergencia entre grandes volúmenes de datos e inteligencia artificial cada vez más capaz de procesarlos. La literatura reciente identifica esta convergencia como uno de los ejes centrales de la evolución del campo (Badshah et al., 2024).</p>
+
+          <p>La irrupción de la IA generativa añade una capa adicional: los mismos datos de comportamiento que antes se usaban para clasificar o recomendar ahora también alimentan modelos capaces de generar contenido, resúmenes o respuestas personalizadas, ampliando tanto las oportunidades como los riesgos ya descritos en la sección anterior.</p>
+
+          <p>En paralelo, el entorno regulatorio se ha vuelto más exigente. El Reglamento de IA de la Unión Europea, vigente desde 2024, introduce obligaciones de transparencia, documentación técnica y gestión de riesgo para los modelos de IA de propósito general y los sistemas considerados de alto riesgo (Parlamento Europeo y Consejo de la Unión Europea, 2024). Es, hasta ahora, una de las respuestas institucionales más completas al perfilamiento algorítmico descrito por Kang et al. (2025).</p>
+
+          <p>Al mismo tiempo, persisten tensiones de acceso: mientras las plataformas amplían el uso interno de IA sobre datos de comportamiento, el acceso académico externo a esos mismos datos se ha vuelto más restringido, dificultando la investigación independiente (Chen et al., 2024).</p>
+        </section>
+
+        <!-- ===== 9. NUESTRA POSTURA ===== -->
+        <section class="block block--stance" id="nuestra-postura" aria-labelledby="nuestra-postura-title">
+          <p class="block__eyebrow">09 · Argumentación</p>
+          <h2 class="block__title" id="nuestra-postura-title">Nuestra postura</h2>
+
+          <p>Las redes sociales han acelerado de forma notable el desarrollo del ecosistema de Big Data porque generan datos de manera continua, diversa y a gran escala. Los tres casos analizados —TikTok, Meta y X— muestran que este no es un fenómeno hipotético: es un mecanismo activo, documentado por las propias plataformas y por la investigación académica (TikTok, 2020; Meta, s. f.; Jonnala et al., 2025).</p>
+
+          <p>Sostenemos, sin embargo, que la cantidad de datos disponibles no es el factor que determina su valor. El caso de TikTok lo muestra con claridad: no es el volumen de interacciones lo que mejora la recomendación, sino la capacidad del sistema para ponderar correctamente señales como el tiempo de visualización frente a señales más débiles (TikTok, 2020). Es la calidad del procesamiento, no la cantidad de datos, lo que genera valor (Badshah et al., 2024).</p>
+
+          <p>Al mismo tiempo, el caso de Meta evidencia que la responsabilidad ética no puede depender únicamente de declaraciones de política interna. La investigación sobre perfilamiento algorítmico muestra que existen mecanismos capaces de aproximar información sensible incluso cuando esta no se usa de forma directa (Kang et al., 2025). Por eso, consideramos que la transparencia verificable —auditable externamente, no solo declarada— debe ser un componente central de cualquier evaluación positiva del Big Data en redes sociales.</p>
+
+          <p>En síntesis: defendemos una postura intermedia, alejada tanto del optimismo tecnológico acrítico como del rechazo generalizado a estas tecnologías. Las redes sociales son, en efecto, uno de los motores más importantes del Big Data contemporáneo; pero su valor real depende de decisiones humanas —técnicas, regulatorias y éticas— que hoy siguen siendo desiguales entre plataformas y jurisdicciones.</p>
+        </section>
+
+        <!-- ===== 10. CONCLUSIONES ===== -->
+        <section class="block" id="conclusiones" aria-labelledby="conclusiones-title">
+          <p class="block__eyebrow">10 · Cierre</p>
+          <h2 class="block__title" id="conclusiones-title">Conclusiones</h2>
+
+          <p>Este artículo partió de una tesis concreta: las redes sociales no son solo espacios de comunicación, sino uno de los principales motores del crecimiento del Big Data contemporáneo. La evidencia revisada —desde la definición técnica de las 5V hasta los tres casos analizados— respalda esa tesis sin necesidad de exagerarla.</p>
+
+          <p>Las redes sociales generan datos explícitos, de comportamiento y contextuales de forma simultánea y continua. Ese flujo constante alimenta sistemas de recomendación, publicidad personalizada y análisis de tendencias que hoy son parte cotidiana de la experiencia digital.</p>
+
+          <p>Al mismo tiempo, ese mismo flujo de datos habilita formas de perfilamiento, vigilancia y explotación comercial que no siempre son visibles para quienes los generan. Reconocer esta tensión no debilita el argumento central: lo completa.</p>
+
+          <p>El futuro de esta relación entre redes sociales y Big Data dependerá, en gran medida, de si la capacidad técnica para procesar datos —cada vez mayor gracias a la inteligencia artificial— logra desarrollarse junto con marcos regulatorios y prácticas éticas igualmente sólidos. Los primeros pasos regulatorios ya existen (Parlamento Europeo y Consejo de la Unión Europea, 2024); su efectividad real todavía está por evaluarse.</p>
+        </section>
+
+        <!-- ===== 11. REFERENCIAS ===== -->
+        <section class="block" id="referencias" aria-labelledby="referencias-title">
+          <p class="block__eyebrow">11 · Bibliografía</p>
+          <h2 class="block__title" id="referencias-title">Referencias</h2>
+          <p>Fuentes citadas a lo largo del artículo, en formato APA 7.ª edición.</p>
+
+          <ol class="references">
+            <li>Badshah, A., Daud, A., Alharbey, R., Banjar, A., Bukhari, A., &amp; Alshemaimri, B. (2024). Big data applications: Overview, challenges and future. <em>Artificial Intelligence Review</em>, <em>57</em>(11). https://doi.org/10.1007/s10462-024-10938-5</li>
+            <li>Chang, W., &amp; Grady, N. (2018). <em>NIST big data interoperability framework: Volume 1, big data definitions</em> (Versión 2) (NIST Special Publication 1500-1r1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.1500-1r1</li>
+            <li>Chen, Y., Sherren, K., Lee, K. Y., McCay-Peet, L., Xue, S., &amp; Smit, M. (2024). From theory to practice: Insights and hurdles in collecting social media data for social science research. <em>Frontiers in Big Data</em>, <em>7</em>, Artículo 1379921. https://doi.org/10.3389/fdata.2024.1379921</li>
+            <li>Chew, A. M. K., &amp; Gunasekeran, D. V. (2021). Social media big data: The good, the bad, and the ugly (un)truths. <em>Frontiers in Big Data</em>, <em>4</em>, Artículo 623794. https://doi.org/10.3389/fdata.2021.623794</li>
+            <li>Hemmati, A., Mohammadi Arzanagh, H., &amp; Rahmani, A. M. (2023). A taxonomy and survey of big data in social media. <em>Concurrency and Computation: Practice and Experience</em>, <em>36</em>(1), Artículo e7875. https://doi.org/10.1002/cpe.7875</li>
+            <li>Jonnala, N. S., Ram Teja, A. V. S., Raja Rajeswari, S., Jakeer, S., Dheeraj, A., Bansal, S., Prakash, K., Singh, S., Faruque, M. R. I., &amp; Al-mugren, K. S. (2025). Leveraging hybrid model for accurate sentiment analysis of Twitter data. <em>Scientific Reports</em>, <em>15</em>(1). https://doi.org/10.1038/s41598-025-09794-2</li>
+            <li>Kang, H., Yang, T., Banu, N., &amp; Oh, J. (2025). Latent privacy management profiles on algorithmic social media: Cross-cultural insights into privacy protection motivations and management behaviors. <em>Journal of Computer-Mediated Communication</em>, <em>30</em>(6), Artículo zmaf021. https://doi.org/10.1093/jcmc/zmaf021</li>
+            <li>Meta. (s. f.). <em>Introduction to the advertising standards</em>. Meta Transparency Center. Recuperado el 21 de agosto de 2026, de https://transparency.meta.com/policies/ad-standards/</li>
+            <li>Parlamento Europeo y Consejo de la Unión Europea. (2024). <em>Reglamento (UE) 2024/1689 por el que se establecen normas armonizadas en materia de inteligencia artificial</em>. Diario Oficial de la Unión Europea. https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng</li>
+            <li>TikTok. (2020, 18 de junio). <em>How TikTok recommends videos #ForYou</em>. TikTok Newsroom. https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you</li>
+          </ol>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <img class="site-footer__logo" src="assets/logosInstitucionales/HORIZONTAL BLANCO.png" alt="Universidad de Cundinamarca" height="36">
+      <p class="site-footer__title">El océano de datos: cómo las redes sociales impulsan la era del Big Data</p>
+      <p class="site-footer__meta">Blog académico · 2026 · Autor: Nikolas Esteban Krejci Bautista · Programa: Especialización en Analítica y Ciencia de Datos · Institución: Universidad de Cundinamarca</p>
+      <a href="#top" class="site-footer__top" data-nav>Volver al inicio</a>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba" type="button">
+    <svg class="icon" width="20" height="20"><use href="#icon-arrow-up"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
